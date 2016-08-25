@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Button from 'react-native-button';
 import {
   StyleSheet,
   Text,
@@ -7,19 +7,34 @@ import {
   Image,
   TextInput,
   TouchableHighlight,
-  Navigator,
 } from 'react-native';
+
+import { Actions } from 'react-native-router-flux';
+
+const t = require('tcomb-form-native');
+
+const Form = t.form.Form;
+
+const Person = t.struct({
+  username: t.String,
+  password: t.String,
+});
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      text1: 'Username',
-      text2: 'Password',
-    };
     this.onPressButton = () => {
       console.log(3)
     };
+    this.onPress = () => {
+      const value =this.refs.form.getValue();
+      if (value) {
+        console.log(value);
+      }
+    };
+  }
+  _handlePress() {
+    console.log('Pressed!');
   }
   render() {
     return (
@@ -32,32 +47,28 @@ export default class Login extends Component {
           This is Olivia's First ios App
         </Text>
         <Text style={styles.instructions}>
-          Have a personalized Reading List tailored to you,{'\n'}
-          create a profile by Signing In Below!
+          Have a personalized Reading List built for you,{'\n'}
+          create a profile by Signing In below!
         </Text>
-        <TextInput
-          style={styles.textBox}
-          onChangeText={(text1) => this.setState({text1})}
-          value={this.state.text1}
+
+        <Form
+          ref="form"
+          type={Person}
         />
-        <TextInput
-          style={styles.textBox}
-          onChangeText={(text2) => this.setState({text2})}
-          value={this.state.text2}
-        />
-        <TouchableHighlight underlayColor='seagreen' style={styles.button} onPress={this.onPressButton}>
-          <Text>Create</Text>
+        <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
+          <Text style={styles.buttonText} onPress={Actions.Quiz}>Create</Text>
         </TouchableHighlight>
+
+
         <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          Already Have a Profile?
         </Text>
-        <Text style={styles.signIn}>
-          Already Have a Profile? Sign in Here!
-        </Text>
-        <TouchableHighlight underlayColor='seagreen' style={styles.button} onPress={this.onPressButton}>
-          <Text>Sign In</Text>
-        </TouchableHighlight>
+        <Button
+          style={{fontSize: 15, color: 'green'}}
+          styleDisabled={{color: 'red'}}
+          onPress={() => this._handlePress()}>
+            Sign In Here!
+          </Button>
       </View>
     );
   }
@@ -68,44 +79,43 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'whitesmoke',
+    backgroundColor: '#faf0e6',
   },
   image: {
-    flex: 3,
+    marginTop: 15,
     width: 400,
-    height: 210,
+    height: 225,
   },
   welcome: {
     fontSize: 30,
     textAlign: 'center',
     margin: 10,
-    color: 'darkslategray',
+    color: 'steelblue',
   },
   intro: {
     fontSize: 20,
     color:'black',
     textAlign: 'center',
   },
-  textBox: {
-    height: 40,
-    width: 250,
-    margin: 5,
+  instructions: {
+    fontSize: 15,
+    textAlign: 'center',
     padding: 10,
-    borderColor: 'sienna',
-    borderWidth: 1,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
     alignSelf: 'center'
   },
-  instructions: {
-    flex: 2,
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-    padding: 10,
-  },
   button: {
-    margin: 5,
+    height: 36,
+    backgroundColor: '#8b0000',
+    borderColor: '#800000',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
     padding: 10,
-    backgroundColor: 'darkred',
-  },
+    justifyContent: 'center'
+  }
 
 });
