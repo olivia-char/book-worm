@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import InfoSlider from '../components/InfoSlider';
 
-
 import {
   StyleSheet,
   Text,
@@ -9,6 +8,7 @@ import {
   Image,
   Picker,
   Slider,
+  SegmentedControlIOS,
 } from 'react-native';
 
 const Item = Picker.Item;
@@ -53,6 +53,21 @@ export default class Quiz extends Component {
             <Item label="3 - 4" value="hard"/>
             <Item label="5 +" value="expert"/>
           </Picker>
+        </View>
+        <View style={{width:350, height: 200, margin: 10}}>
+          <Text style={styles.question}>
+            What are your top 3 favorite reading genres?
+          </Text>
+          <SegmentedControlIOS
+            style={{padding: 20, marginTop: 10}}
+            tintColor= "purple"
+            values={['Fantasy', 'Mystery', 'Romance', 'Non-Fiction']}
+          />
+          <SegmentedControlIOS
+            style={{padding:20}}
+            tintColor= "purple"
+            values={['Thriller', 'Sci/Fi', 'Drama', 'Historical']}
+          />
         </View>
       </View>
     );
