@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   slider: {
     height: 10,
     width: 200,
-    // margin: 10,
   },
   text: {
     fontSize: 14,

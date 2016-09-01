@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   Picker,
   Slider,
   SegmentedControlIOS,

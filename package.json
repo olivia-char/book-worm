@@ -12,6 +12,7 @@
     "react-native-material-design": "^0.3.7",
     "react-native-multi-slider": "^0.3.5",
     "react-native-multiple-choice": "0.0.8",
+    "react-native-nav": "^1.1.4",
     "react-native-radio-buttons": "^0.12.1",
     "react-native-router-flux": "^3.35.0",
     "react-native-vector-icons": "^2.0.3",

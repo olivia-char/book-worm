@@ -40,35 +40,38 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <Image source={require('../../img/my_icon.jpg')} style={styles.image}/>
-        <Text style={styles.welcome}>
-          Welcome to BookWorm
-        </Text>
-        <Text style={styles.intro}>
-          This is Olivia's First ios App
-        </Text>
-        <Text style={styles.instructions}>
+
+        <View style={styles.header}>
+          <Text style={styles.welcome}>
+            Welcome to BookWorm
+          </Text>
+          <Text style={styles.intro}>
+            This is Olivia's First ios App
+          </Text>
+        </View>
+
+        <View style={styles.newUserLogin}>
+          <Form
+            ref="form"
+            type={Person}
+          />
+          <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
+          <Text style={styles.buttonText} onPress={Actions.Profile}>Login</Text>
+          </TouchableHighlight>
+        </View>
+
+        <View style={styles.footer}>
+          <Text style={styles.instructions}>
           Have a personalized Reading List built for you,{'\n'}
-          create a profile by Signing In below!
-        </Text>
-
-        <Form
-          ref="form"
-          type={Person}
-        />
-        <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
-          <Text style={styles.buttonText} onPress={Actions.Quiz}>Create</Text>
-        </TouchableHighlight>
-
-
-        <Text style={styles.instructions}>
-          Already Have a Profile?
-        </Text>
-        <Button
-          style={{fontSize: 15, color: 'green'}}
-          styleDisabled={{color: 'red'}}
-          onPress={() => this._handlePress()}>
-            Sign In Here!
+          create a profile below
+          </Text>
+          <Button
+            style={{fontSize: 18, color: 'green'}}
+            styleDisabled={{color: 'red'}}
+            onPress={Actions.Quiz}>
+              Create a New Profile Here!
           </Button>
+        </View>
       </View>
     );
   }
@@ -79,10 +82,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#faf0e6',
+    backgroundColor: 'steelblue',
   },
   image: {
-    marginTop: 15,
+    flex: 2,
     width: 400,
     height: 225,
   },
@@ -90,7 +93,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     margin: 10,
-    color: 'steelblue',
+    color: 'black',
+  },
+  header: {
+    width: 400,
+    height: 100,
+    padding: 5,
+    backgroundColor: 'oldlace',
   },
   intro: {
     fontSize: 20,
@@ -102,20 +111,31 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 10,
   },
+  newUserLogin: {
+    width: 300,
+    height: 225,
+    padding: 20,
+  },
   buttonText: {
     fontSize: 18,
     color: 'white',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   button: {
     height: 36,
-    backgroundColor: '#8b0000',
-    borderColor: '#800000',
+    width: 100,
+    alignSelf: 'center',
+    backgroundColor: 'steelblue',
+    borderColor: 'cadetblue',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
     padding: 10,
-    justifyContent: 'center'
-  }
-
+    justifyContent: 'center',
+  },
+  footer: {
+    backgroundColor: 'oldlace',
+    width: 400,
+    height: 100,
+  },
 });
