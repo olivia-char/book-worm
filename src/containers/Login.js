@@ -68,7 +68,7 @@ export default class Login extends Component {
           <Button
             style={{fontSize: 18, color: 'green'}}
             styleDisabled={{color: 'red'}}
-            onPress={Actions.Quiz}>
+            onPress={Actions.SignUp}>
               Create a New Profile Here!
           </Button>
         </View>

@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 
-export default class Profile extends Component {
+export default class ReadingList extends Component {
   render() {
     return(
       <View style={styles.container}>

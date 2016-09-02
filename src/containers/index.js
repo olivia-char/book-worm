@@ -5,6 +5,7 @@ import Login from './Login';
 import Quiz from './Quiz';
 import Profile from './Profile';
 import ReadingList from './ReadingList';
+import SignUp from './SignUp';
 
 
 export default class App extends Component {
@@ -16,6 +17,7 @@ export default class App extends Component {
           <Scene key="Profile" component={Profile} title="Profile"/>
           <Scene key="Quiz" component={Quiz} title="Quiz" />
           <Scene key="ReadingList" component={ReadingList} title="ReadingList" />
+          <Scene key="SignUp" component={SignUp} title="SignUp" />
         </Scene>
       </Router>
     )
